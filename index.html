@@ -31,7 +31,17 @@
                     .attr('cx', (d,i)=>{return x(new Date(d.date));})
                     .attr('cy', (d,i)=>{return y(d.total_cases_per_million)}) //max 14102
                     .attr('r', (d,i)=>{return 1 + d.new_cases_per_million / 40}) //max 237
-                    .attr('fill', (d,i)=>{return colors(d.new_cases_per_million)});
+                    .attr('fill', (d,i)=>{return colors(d.new_cases_per_million)})
+                    .on('mouseover', (d,i)=>{
+                        svg.append('text')
+                            .attr('x', x(new Date(d.date)))
+                            .attr('y', y(d.total_cases_per_million))
+                            .attr('id', 'hoverlabel'+i)
+                            .text(`Total cases per million: ${d.total_cases_per_million}\nNew cases per million: ${d.new_cases_per_million}`);
+                    })
+                    .on('mouseout', (d,i)=>{
+                        svg.select('hoverlabel'+i).remove();
+                    });
         }
         function next() {
             currentSlide += 1;
