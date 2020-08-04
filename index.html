@@ -6,6 +6,9 @@
         var gotData = false;
         function render(slide) {
             console.log(slide);
+
+            document.getElementById(`${slide}`).style['background-color'] = 'blue';
+
             currentSlide = slide;
             d3.select('div').html("");
             var width = 500;
@@ -49,9 +52,9 @@
     </script>
     <head>
         <h2>Difference in COVID-19 Responses in different countries.</h2>
-        <button onclick="render(1)">1</button>
-        <button onclick="render(2)">2</button>
-        <button onclick="render(3)">3</button>
+        <button id="1" onclick="render(1)">1</button>
+        <button id="2" onclick="render(2)">2</button>
+        <button id="3" onclick="render(3)">3</button>
         <button onclick="next()">Next</button>
         <br>
     </head>
