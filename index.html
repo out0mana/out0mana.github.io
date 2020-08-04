@@ -20,13 +20,13 @@
             var colors = d3.scaleLinear().domain([0,237/2,237]).range(['green','yellow','red']);
             if (slide == 1) {
                 var data = slideData.ESP.data;
-                renderTitle('Spain');
+                renderTitle(svg,'Spain',margin,width)
             } else if(slide == 2) {
                 var data = slideData.USA.data;
-                renderTitle('United States');
+                renderTitle(svg,'United States',margin,width)
             } else if(slide == 3) {
                 var data = slideData.KOR.data;
-                renderTitle('South Korea');
+                renderTitle(svg,'South Korea',margin,width)
             }
 
             svg.append('g').attr('transform', `translate(${margin},${margin})`)
@@ -69,15 +69,15 @@
                 .style('text-anchor', 'middle')
                 .text('Date');
 
-                function renderTitle(title) {
-                    svg.append("text")
-                        .attr("x", (width / 2))             
-                        .attr("y", 0 - (margin.top / 2))
-                        .attr("text-anchor", "middle")  
-                        .style("font-size", "16px") 
-                        .style("text-decoration", "underline")  
-                        .text(title);
-                }
+            function renderTitle(svg,title,margin,width) {
+                svg.append("text")
+                    .attr("x", (width / 2))             
+                    .attr("y", 0 - (margin.top / 2))
+                    .attr("text-anchor", "middle")  
+                    .style("font-size", "16px") 
+                    .style("text-decoration", "underline")  
+                    .text(title);
+            }
             
         }
         function next() {
