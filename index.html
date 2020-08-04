@@ -71,6 +71,24 @@
                 .style('text-anchor', 'middle')
                 .text('Date');
 
+
+            const annotations = [{
+                    note: {
+                    label: "Here is the annotation label",
+                    title: "Annotation title"
+                    },
+                    x: 100,
+                    y: 100,
+                    dy: 100,
+                    dx: 100
+                }];
+
+                
+            svg.append("g")
+                .call(d3.annotation()
+                .annotations(annotations));
+            
+
             function renderTitle(svg,title,margin,width) {
                 svg.append("text")
                     .attr("x", (width / 2))             
