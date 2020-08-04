@@ -22,6 +22,22 @@
                 var y = d3.scaleLinear().domain([280,0]).range([0, height - 2 * margin]);
                 var data = slideData.KOR.data;
                 renderTitle(svg,'South Korea',margin,width);
+
+                // const annotations = [{
+                //     note: {
+                //     label: "Here is the annotation label",
+                //     title: "Annotation title"
+                //     },
+                //     x: 100,
+                //     y: 100,
+                //     dy: 50,
+                //     dx: 50
+                // }];
+
+                
+                // svg.append("g")
+                //     .call(d3.annotation()
+                //     .annotations(annotations));
             } else if(slide == 2) {
                 var y = d3.scaleLinear().domain([6171,0]).range([0, height - 2 * margin]);
                 var data = slideData.ESP.data;
@@ -74,21 +90,6 @@
                 .text('Date');
 
 
-            const annotations = [{
-                    note: {
-                    label: "Here is the annotation label",
-                    title: "Annotation title"
-                    },
-                    x: 100,
-                    y: 100,
-                    dy: 100,
-                    dx: 100
-                }];
-
-                
-            svg.append("g")
-                .call(d3.annotation()
-                .annotations(annotations));
             
 
             function renderTitle(svg,title,margin,width) {
