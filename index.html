@@ -6,8 +6,8 @@
         var gotData = false;
         function render(slide) {
             console.log(slide);
-
-            document.getElementById(`${slide}`).style['background-color'] = 'blue';
+            document.getElementById(`${currentSlide}`).style.border = 'none';
+            document.getElementById(`${slide}`).style.border = '2px solid #008CBA';
 
             currentSlide = slide;
             d3.select('div').html("");
