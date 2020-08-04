@@ -40,7 +40,7 @@
                             .text(`Total cases per million: ${d.total_cases_per_million}`);
                         svg.append('text')
                             .attr('x', x(new Date(d.date)))
-                            .attr('y', y(d.total_cases_per_million)+10)
+                            .attr('y', y(d.total_cases_per_million)+14)
                             .attr('id', 'hoverlabel1'+i)
                             .text(`New cases per million: ${d.new_cases_per_million}`);
                     })
