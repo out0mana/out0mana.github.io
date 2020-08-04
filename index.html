@@ -7,14 +7,14 @@
         function render(slide) {
             console.log(slide);
             currentSlide = slide;
-            d3.select('div').html = "";
+            d3.select('div').html("");
             var width = 500;
             var height = 500;
             var margin = 50;
             var svg = d3.select('div').append('svg').attr('width', width).attr('height', height);
             var x = d3.scaleTime().domain([new Date(2020,1,1), new Date()]).range([0, width - 2 * margin]);
             var y = d3.scaleLinear().domain([14102,0]).range([0, height - 2 * margin]);
-            var colors = d3.scaleLinear().domain([0,237]).range(['green','red']);
+            var colors = d3.scaleLinear().domain([0,237/2,237]).range(['green','yellow','red']);
             if (slide == 1) {
                 var data = slideData.ESP.data;
             } else if(slide == 2) {
@@ -28,6 +28,7 @@
                     .attr('cx', (d,i)=>{return x(new Date(d.date));})
                     .attr('cy', (d,i)=>{return y(d.total_cases_per_million)}) //max 14102
                     .attr('r', (d,i)=>{return 1 + d.new_cases_per_million / 40}); //max 237
+                    .attr('fill', (d,i)=>{return color(d.new_cases_per_million)});
         }
         function next() {
             currentSlide += 1;
