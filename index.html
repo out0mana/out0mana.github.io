@@ -37,12 +37,13 @@
         async function getData() {
             console.log('getData');
             var data = await d3.json('https://out0mana.github.io/owid-covid-data.json');
+            gotData = true;
             console.log(data);
             slideData.ESP = data.ESP; //spain
             slideData.USA = data.USA; //usa
             slideData.KOR = data.KOR; //korea
             render(1);
-            gotData = true;
+            
         }
     </script>
     <head>
