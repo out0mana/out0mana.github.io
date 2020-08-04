@@ -37,7 +37,7 @@
                     .attr('fill', (d,i)=>{return colors(d.new_cases_per_million)})
                     .on('mouseover', (d,i)=>{
                         svg.append('text')
-                            .attr('x', x(new Date(d.date)))
+                            .attr('x', x(new Date(d.date) + margin))
                             .attr('y', y(d.total_cases_per_million))
                             .attr('id', 'hoverlabel0'+i)
                             .text(`Total cases per million: ${d.total_cases_per_million}`);
