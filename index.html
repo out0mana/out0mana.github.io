@@ -24,7 +24,7 @@
         function getData() {
             console.log('getData');
             
-            d3.json('owid-covid-data.json', function(err,data){
+            d3.json('https://out0mana.github.io/owid-covid-data.json', function(err,data){
                 console.log(err);
                 console.log(data);
                 slideData.ESP = data.ESP; //spain
