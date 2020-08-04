@@ -12,6 +12,7 @@
 
             currentSlide = slide;
             d3.select('div').html("");
+            document.getElementById('about').remove();
             var width = 500;
             var height = 500;
             var margin = 100;
@@ -23,6 +24,7 @@
                 var data = slideData.KOR.data;
                 renderTitle(svg,'South Korea',margin,width);
                 var about = document.createElement('div');
+                about.id = 'about';
                 about.innerHTML = `
                 South Korea was one of the first countries to get a COVID-19 outbreak.
                 <br>The first case was reported on January 20,2020.
