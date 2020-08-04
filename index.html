@@ -3,15 +3,9 @@
     <script>
         var currentSlide = 1;
         var slideData = {};
-        d3.json('https://covid.ourworldindata.org/data/owid-covid-data.json', function(err,data){
-            console.log(err);
-            console.log(data);
-            slideData.ESP = data.ESP; //spain
-            slideData.USA = data.USA; //usa
-            slideData.KOR = data.KOR; //korea
-            render(1);
-        });
+        var gotData = false;
         function render(slide) {
+            if (!gotData) getData();
             currentSlide = slide;
             console.log(slide);
             if (slide == 1) {
@@ -26,6 +20,19 @@
             currentSlide += 1;
             if(currentSlide > 3) currentSlide = 1;
             render(currentSlide);
+        }
+        function getData() {
+            console.log('getData');
+            
+            d3.json('owid-covid-data.json', function(err,data){
+                console.log(err);
+                console.log(data);
+                slideData.ESP = data.ESP; //spain
+                slideData.USA = data.USA; //usa
+                slideData.KOR = data.KOR; //korea
+                render(1);
+                gotData = true;
+            });
         }
     </script>
     <body>
