@@ -40,7 +40,7 @@
                             .text(`Total cases per million: ${d.total_cases_per_million}\nNew cases per million: ${d.new_cases_per_million}`);
                     })
                     .on('mouseout', (d,i)=>{
-                        svg.select('hoverlabel'+i).remove();
+                        svg.select('#hoverlabel'+i).remove();
                     });
         }
         function next() {
