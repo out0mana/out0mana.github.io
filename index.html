@@ -73,7 +73,7 @@
                     .selectAll('circle').data(data).enter().append('circle')
                     .attr('cx', (d,i)=>{return x(new Date(d.date));})
                     .attr('cy', (d,i)=>{return y(d.total_cases_per_million)}) //max 14102
-                    .attr('r', (d,i)=>{return 2 + d.new_cases_per_million / 40}) //max 237
+                    .attr('r', (d,i)=>{return 3 + d.new_cases_per_million / 40}) //max 237
                     .attr('fill', (d,i)=>{return colors(d.new_cases_per_million)})
                     .on('mouseover', (d,i)=>{
                         svg.append('text')
