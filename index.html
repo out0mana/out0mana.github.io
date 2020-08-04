@@ -12,7 +12,10 @@
 
             currentSlide = slide;
             d3.select('div').html("");
-            document.getElementById('about').remove();
+            var aboutElement = document.getElementById('about')
+            if (element != null && element.value == '') {
+                aboutElement.remove();
+            }
             var width = 500;
             var height = 500;
             var margin = 100;
