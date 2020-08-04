@@ -6,7 +6,7 @@
         var gotData = false;
         function render(slide) {
             console.log(slide);
-            document.getElementById(`${currentSlide}`).style.border = 'none';
+            document.getElementById(`${currentSlide}`).style = '';
             document.getElementById(`${slide}`).style.border = '2px solid #008CBA';
 
             currentSlide = slide;
