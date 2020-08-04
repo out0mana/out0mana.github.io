@@ -21,21 +21,18 @@
             if(currentSlide > 3) currentSlide = 1;
             render(currentSlide);
         }
-        function getData() {
+        async function getData() {
             console.log('getData');
-            
-            d3.json('https://out0mana.github.io/owid-covid-data.json', function(err,data){
-                console.log(err);
-                console.log(data);
-                slideData.ESP = data.ESP; //spain
-                slideData.USA = data.USA; //usa
-                slideData.KOR = data.KOR; //korea
-                render(1);
-                gotData = true;
-            });
+            var data = await d3.json('https://out0mana.github.io/owid-covid-data.json');
+            console.log(data);
+            slideData.ESP = data.ESP; //spain
+            slideData.USA = data.USA; //usa
+            slideData.KOR = data.KOR; //korea
+            render(1);
+            gotData = true;
         }
     </script>
-    <body>
+    <body onload="getData()">
         <h2>Difference in COVID-19 Responses in different countries.</h2>
         <button onclick="render(1)">1</button>
         <button onclick="render(2)">2</button>
