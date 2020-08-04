@@ -25,22 +25,22 @@
                 var about = document.createElement('div');
                 about.innerHTML = `
                 South Korea was one of the first countries to get a COVID-19 outbreak.
-                The first case was reported on January 20,2020.
-                The first large outbreak starting on February 19th was tied to the Shincheonji Church.
-                There was a minor resurgence in May as the country reopened.
+                \nThe first case was reported on January 20,2020.
+                \nThe first large outbreak starting on February 19th was tied to the Shincheonji Church.
+                \nThere was a minor resurgence in May as the country reopened.
                 `;
                 document.body.appendChild(about);
 
-                // const annotations = [{
-                //     note: {
-                //     label: "Here is the annotation label",
-                //     title: "Annotation title"
-                //     },
-                //     x: 100,
-                //     y: 100,
-                //     dy: 50,
-                //     dx: 50
-                // }];
+                const annotations = [{
+                    note: {
+                    label: "Here is the annotation label",
+                    title: "First case"
+                    },
+                    x: x(new Date(2020,1,20)),
+                    y: y(1),
+                    dy: 50,
+                    dx: 50
+                }];
 
                 
                 // svg.append("g")
