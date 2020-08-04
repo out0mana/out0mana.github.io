@@ -19,14 +19,16 @@
             var y = d3.scaleLinear().domain([14102,0]).range([0, height - 2 * margin]);
             var colors = d3.scaleLinear().domain([0,237/2,237]).range(['green','yellow','red']);
             if (slide == 1) {
-                var data = slideData.ESP.data;
-                renderTitle(svg,'Spain',margin,width);
-            } else if(slide == 2) {
-                var data = slideData.USA.data;
-                renderTitle(svg,'United States',margin,width);
-            } else if(slide == 3) {
                 var data = slideData.KOR.data;
                 renderTitle(svg,'South Korea',margin,width);
+                
+            } else if(slide == 2) {
+                var data = slideData.ESP.data;
+                renderTitle(svg,'Spain',margin,width);
+                
+            } else if(slide == 3) {
+                var data = slideData.USA.data;
+                renderTitle(svg,'United States',margin,width);
             }
 
             svg.append('g').attr('transform', `translate(${margin},${margin})`)
