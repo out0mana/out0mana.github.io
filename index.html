@@ -20,13 +20,13 @@
             var colors = d3.scaleLinear().domain([0,237/2,237]).range(['green','yellow','red']);
             if (slide == 1) {
                 var data = slideData.ESP.data;
-                renderTitle(svg,'Spain');
+                renderTitle('Spain');
             } else if(slide == 2) {
                 var data = slideData.USA.data;
-                renderTitle(svg,'United States');
+                renderTitle('United States');
             } else if(slide == 3) {
                 var data = slideData.KOR.data;
-                renderTitle(svg,'South Korea');
+                renderTitle('South Korea');
             }
 
             svg.append('g').attr('transform', `translate(${margin},${margin})`)
@@ -68,6 +68,16 @@
                 .attr('transform', `translate(${width/2},${height-margin+(margin/2)})`)
                 .style('text-anchor', 'middle')
                 .text('Date');
+
+                function renderTitle(title) {
+                    svg.append("text")
+                        .attr("x", (width / 2))             
+                        .attr("y", 0 - (margin.top / 2))
+                        .attr("text-anchor", "middle")  
+                        .style("font-size", "16px") 
+                        .style("text-decoration", "underline")  
+                        .text(title);
+                }
             
         }
         function next() {
@@ -87,15 +97,7 @@
             render(1);
             
         }
-        function renderTitle(svg,title) {
-            svg.append("text")
-                .attr("x", (width / 2))             
-                .attr("y", 0 - (margin.top / 2))
-                .attr("text-anchor", "middle")  
-                .style("font-size", "16px") 
-                .style("text-decoration", "underline")  
-                .text(title);
-        }
+        
     </script>
     <head>
         <h2>Difference in COVID-19 Responses in different countries.</h2>
