@@ -42,9 +42,9 @@
                 }];
 
                 
-                // svg.append("g")
-                //     .call(d3.annotation()
-                //     .annotations(annotations));
+                svg.append("g")
+                    .call(d3.annotation()
+                    .annotations(annotations));
             } else if(slide == 2) {
                 var y = d3.scaleLinear().domain([6171,0]).range([0, height - 2 * margin]);
                 var data = slideData.ESP.data;
