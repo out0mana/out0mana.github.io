@@ -27,7 +27,7 @@
                     .selectAll('circle').data(data).enter().append('circle')
                     .attr('cx', (d,i)=>{return x(new Date(d.date));})
                     .attr('cy', (d,i)=>{return y(d.total_cases_per_million)}) //max 14102
-                    .attr('r', (d,i)=>{return 1 + d.new_cases_per_million / 40}); //max 237
+                    .attr('r', (d,i)=>{return 1 + d.new_cases_per_million / 40}) //max 237
                     .attr('fill', (d,i)=>{return color(d.new_cases_per_million)});
         }
         function next() {
