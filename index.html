@@ -22,7 +22,6 @@
                 var y = d3.scaleLinear().domain([280,0]).range([0, height - 2 * margin]);
                 var data = slideData.KOR.data;
                 renderTitle(svg,'South Korea',margin,width);
-                
             } else if(slide == 2) {
                 var y = d3.scaleLinear().domain([6171,0]).range([0, height - 2 * margin]);
                 var data = slideData.ESP.data;
@@ -38,7 +37,7 @@
                     .selectAll('circle').data(data).enter().append('circle')
                     .attr('cx', (d,i)=>{return x(new Date(d.date));})
                     .attr('cy', (d,i)=>{return y(d.total_cases_per_million)}) //max 14102
-                    .attr('r', (d,i)=>{return 1 + d.new_cases_per_million / 40}) //max 237
+                    .attr('r', (d,i)=>{return 2 + d.new_cases_per_million / 40}) //max 237
                     .attr('fill', (d,i)=>{return colors(d.new_cases_per_million)})
                     .on('mouseover', (d,i)=>{
                         svg.append('text')
