@@ -7,11 +7,11 @@
         function render(slide) {
             console.log(slide);
             currentSlide = slide;
-            d3.select(id).html = "";
+            d3.select('container').html = "";
             var width = 500;
             var height = 500;
             var margin = 50;
-            var svg = d3.select('body').append('svg').attr('width', width).attr('height', height);
+            var svg = d3.select('container').append('svg').attr('width', width).attr('height', height);
             var x = d3.scaleTime().domain([new Date(2020,1,1), new Date()]).range([0, width - 2 * margin]);
             var y = d3.scaleLinear().domain([14102,0]).range([0, height - 2 * margin]);
             var colors = d3.scaleLinear().domain([0, 237/2,237]).range(['green','yellow','red']);
@@ -27,7 +27,7 @@
                     .selectAll('circle').data(data).enter().append('circle')
                     .attr('cx', (d,i)=>{return x(new Date(d.date));})
                     .attr('cy', (d,i)=>{return y(d.total_cases_per_million)}) //max 14102
-                    .attr('r', (d,i)=>{return 1 + d.new_cases_per_million}) //max 237
+                    .attr('r', (d,i)=>{return 1 + d.new_cases_per_million}); //max 237
         }
         function next() {
             currentSlide += 1;
@@ -51,6 +51,8 @@
         <button onclick="render(2)">2</button>
         <button onclick="render(3)">3</button>
         <button onclick="next()">Next</button>
+
+        <div id='container'></div>
 
     </body>
 </html>
